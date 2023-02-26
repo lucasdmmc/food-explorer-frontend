@@ -13,7 +13,7 @@ export function CardFood({ name, description, price, photo }) {
         <img src={`/src/assets/food/${photo}`} alt="" />
       </Link>
       
-      <strong>{title}</strong>
+      <strong>{name}</strong>
 
       <span className="description">{description}</span>
 

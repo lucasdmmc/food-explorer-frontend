@@ -3,7 +3,7 @@ import { FiHeart, FiMinus, FiPlus } from "react-icons/fi";
 import { Button } from "../Button";
 import { Link, useParams } from "react-router-dom";
 
-export function CardFood({ title, description, price, photo }) {
+export function CardFood({ name, description, price, photo }) {
 
   const {id} = useParams()
 

@@ -3,6 +3,7 @@ import ReactDOM from 'react-dom/client'
 import { BrowserRouter } from 'react-router-dom'
 import { ThemeProvider } from 'styled-components'
 import { AppRoutes } from './routes/app.routes'
+import { AuthRoutes } from './routes/auth.routes'
 import { GlobalStyles } from './styles/default'
 import { defaultTheme } from "./styles/theme"
 

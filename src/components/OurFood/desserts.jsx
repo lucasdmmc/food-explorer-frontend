@@ -3,16 +3,13 @@ import { Container, SliderContainer } from "./styles";
 import { CardFood } from "../CardFood";
 import useEmblaCarousel from "embla-carousel-react"
 
-const OPTIONS = {}
-const SLIDE_COUNT = 5
-const SLIDES = Array.from(Array(SLIDE_COUNT).keys())
-
 export function Desserts() {
   const [emblaRef] = useEmblaCarousel({
     align: "start",
     skipSnap: false,
     dragFree: true,
   })
+
   return (
     <div style={{ overflow: "hidden", width: "100%"}}>
       <Container >
@@ -21,7 +18,7 @@ export function Desserts() {
           {desserts.map(dessert => (
             <CardFood
               key={dessert.id}
-              title={dessert.name}
+              name={dessert.name}
               description={dessert.description}
               price={dessert.price}
               photo={dessert.photo}

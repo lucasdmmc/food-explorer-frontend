@@ -10,13 +10,10 @@ export const Container = styled.div`
   border-radius: 5px;
   
   > svg {
-    margin-left: 1.6rem;
+    margin-left: 0.6rem;
   }
   
   input {
-    width: 100%;
-    height: 48px;
-
     border: none;
     background: none;
     outline: none;

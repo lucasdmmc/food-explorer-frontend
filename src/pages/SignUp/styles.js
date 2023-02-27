@@ -21,8 +21,8 @@ export const Container = styled.div`
       line-height: 4.9rem;
     }
     
-    img {
-      height: 4.9rem;
+    svg {
+      fill: ${({ theme }) => theme.colors["cake-100"]};
     }
   }
 

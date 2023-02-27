@@ -58,6 +58,44 @@ export const Container = styled.div`
     color: ${({ theme }) => theme.colors["cake-200"]};
 
   }
+
+
+  @media(max-width: 428px) {
+    padding: 0;
+    padding: 2.4rem;
+    max-width: 21rem;
+    height: 100%;
+    
+    img {
+      width: 8.8rem;
+      height: 8.8rem;
+    }
+    
+    strong {
+      font-size: 1.4rem;
+    }
+    
+    .description {
+      display: none;
+    }
+
+    .price {
+      font-size: 1.6rem;
+      line-height: 1rem;
+    }
+
+    .responsive-amountFood {
+      display: flex;
+      flex-direction: column;
+
+      button {
+        width: 100%;
+        height: 3.2rem;
+        border: none;
+      }
+    }
+
+  }
 `
 
 export const AmountFoodContainer = styled.div`
@@ -98,7 +136,6 @@ export const Favorites = styled.button`
     stroke: ${theme.colors["tomato-300"]};
     animation: ${animateFavorite} 2s forwards ease;
   `}
-    
     
   }
 `

@@ -10,4 +10,10 @@ export const Container = styled.section`
     line-height: 4.5rem;
     color: ${({ theme }) => theme.colors["light-400"]}
   }
+
+  @media(max-width: 428px) {
+    margin: 0 2.4rem;
+    margin-bottom: 4.7rem;
+
+  }
 `

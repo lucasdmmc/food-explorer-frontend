@@ -5,7 +5,7 @@ export const Container = styled.div`
   height: 100vh;
   margin: 0 auto;
   position: relative;
-  
+
   footer { 
     position: absolute;
     bottom: 0;

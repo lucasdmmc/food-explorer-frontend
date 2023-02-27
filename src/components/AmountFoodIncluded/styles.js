@@ -5,6 +5,15 @@ export const Container = styled.div`
   display: flex;
   align-items: center;
   gap: 1.8rem;
+
+  @media(max-width: 428px) {
+    .food-amount {
+      width: 100%;
+      span {
+        font-size: 1.6rem;
+      }
+    }
+  }
 `
 
 export const FoodAmount = styled.div`

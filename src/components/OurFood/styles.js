@@ -37,4 +37,8 @@ export const SliderContainer = styled.div`
   display: flex;
   gap: 2.7rem;
   margin: 0 auto;
+
+  @media(max-width: 428px) {
+  gap: 1.6rem;
+}
 `

@@ -1,20 +1,72 @@
-import styled from "styled-components";
+import styled, { css } from "styled-components";
 
 export const Container = styled.div`
-  width: 138.6rem;
+  max-width: 100%;
+  max-width: 138.6rem;
   margin: 0 auto;
   display: grid;
   grid-template-rows: 104px auto;
   grid-template-areas: "header" "content";
-  height: 100vh;
+  height: 100%;
   
   > main {
     grid-area: "content";
-    overflow-y: scroll;
+    /* overflow-y: scroll; */
+    overflow-x: hidden;
+  }
+
+  /* ========= RESPONSIVE ========== */
+
+  @media(max-width: 428px) {
+    padding: 0;
+    margin: 0;
+    overflow-x: hidden;
+
+    .responsive-main {
+      margin: 0;
+      padding: 0;
+      max-width: 42.8rem;
+      opacity: 1;
+
+      ${({ menuIsVisible }) => menuIsVisible && css`
+        opacity: 0;
+        height: 0;
+      `}
+
+      .intro {
+        margin: 0;
+        padding: 0;
+        margin: 4.4rem 1.6rem 6.2rem 3rem;
+        max-width: 37.6rem;
+        max-height: 12rem;
+        position: relative;
+        
+        img {
+          width: 19.1rem;
+          height: 14.9rem;
+          position: absolute;
+          top: -25px;
+          right: -55px;
+        }
+        
+        .intro-text {
+          margin-right: 0.8rem;
+          width: 100%;
+          strong {
+            font-size: 1.7rem;
+          }
+
+          span {
+            font-size: 1.2rem;
+          }
+        }
+      }
+    }
   }
   
   `
 export const Intro = styled.div`
+  max-width: 100%;
   background: linear-gradient(rgba(9, 30, 38, 1) 0%, rgba(0, 19, 28, 1) 100%) ;
   margin: 16.4rem 12.4rem 0;
   height: 26rem;

@@ -5,7 +5,7 @@ import { Container, FoodAmount } from "./styles";
 export function AmountFoodIncluded({ children }) {
   return (
     <Container>
-      <FoodAmount>
+      <FoodAmount className="food-amount">
         <button className="minus" >
           <FiMinus size={24}/>
         </button>

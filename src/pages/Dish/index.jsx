@@ -9,6 +9,7 @@ export function Dish() {
   return (
     <>
       <Container>
+        
         <Header />
 
         <Content>
@@ -22,7 +23,6 @@ export function Dish() {
 
           <SelectedFood />
         </Content>
-
         <Footer />
       </Container>
     </>

@@ -1,17 +1,14 @@
 import styled from "styled-components";
 
 export const Container = styled.div`
-  width: 100%;
   display: flex;
   align-items: center;
   gap: 4.7rem;
-
-  margin-top: 4.2rem;
-
+  height: 60vh;
+  
   .btn-include {
     padding: 1.2rem 2.4rem;
   }
-
 
   img {
     width: 39rem;

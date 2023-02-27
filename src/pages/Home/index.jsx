@@ -10,7 +10,7 @@ import { Footer } from "../../components/Footer";
 
 export function Home() {
   return (
-    <Container className="container">
+    <Container>
       <Header />
       <main>
         <Intro>

@@ -1,4 +1,4 @@
-import { FiArrowLeft } from "react-icons/fi";
+import { RxCaretLeft } from "react-icons/rx";
 import { Link } from "react-router-dom";
 import { Footer } from "../../components/Footer";
 import { Header } from "../../components/Header";
@@ -7,20 +7,24 @@ import { BackToHome, Container, Content} from "./styles";
 
 export function Dish() {
   return (
-    <Container className="container">
-      <Header />
+    <>
+      <Container>
+        <Header />
 
-      <Content>
-        <BackToHome>
-          <FiArrowLeft size={24} />
-          <Link to="/">
-            <strong>Voltar</strong>
-          </Link>
-        </BackToHome>
+        <Content>
+          
+          <BackToHome>
+            <RxCaretLeft />
+            <Link to="/">
+              <strong>Voltar</strong>
+            </Link>
+          </BackToHome>
 
-      <SelectedFood />
-      </Content>
-      <Footer />
-    </Container>
+          <SelectedFood />
+        </Content>
+
+        <Footer />
+      </Container>
+    </>
   )
 }

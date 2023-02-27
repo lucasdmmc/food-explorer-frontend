@@ -1,8 +1,8 @@
-import { FiMinus } from "react-icons/fi";
+import { FiMinus, FiPlus } from "react-icons/fi";
 import { Button } from "../Button";
 import { Container, FoodAmount } from "./styles";
 
-export function AmountFoodIncluded() {
+export function AmountFoodIncluded({ children }) {
   return (
     <Container>
       <FoodAmount>
@@ -12,12 +12,12 @@ export function AmountFoodIncluded() {
 
         <span>01</span>
 
-        <button className="minus" >
-          <FiMinus size={24}/>
+        <button className="plus" >
+          <FiPlus size={24}/>
         </button>
-      </FoodAmount>
 
-      <Button title="incluir ∙ R$ 25,00"/>
+        {children}
+      </FoodAmount>
     </Container>
   )
 }

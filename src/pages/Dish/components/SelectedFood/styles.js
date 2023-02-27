@@ -1,23 +1,27 @@
 import styled from "styled-components";
 
 export const Container = styled.div`
+  width: 100%;
   display: flex;
-  align-items: start;
+  align-items: center;
   gap: 4.7rem;
+
   margin-top: 4.2rem;
-  padding-bottom: 12.95rem;
+
+  .btn-include {
+    padding: 1.2rem 2.4rem;
+  }
 
 
   img {
     width: 39rem;
-    height: 39rem;
+    height: 38rem;
   }
-`
+  `
 
 export const FoodInformation = styled.div`
   display: flex;
   flex-direction: column;
-
   strong {
     font-size: 4rem;
     font-family: "Poppins", sans-serif;

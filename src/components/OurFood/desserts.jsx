@@ -1,6 +1,6 @@
 import { desserts } from "../../data/desserts";
 import { Container, SliderContainer } from "./styles";
-import { CardFood } from "../CardFood";
+import { FoodCard } from "../FoodCard";
 import useEmblaCarousel from "embla-carousel-react"
 
 export function Desserts() {
@@ -16,7 +16,7 @@ export function Desserts() {
         <div className="embla" ref={emblaRef}>
           <SliderContainer className="embla__slide__number container">
           {desserts.map(dessert => (
-            <CardFood
+            <FoodCard
               key={dessert.id}
               name={dessert.name}
               description={dessert.description}

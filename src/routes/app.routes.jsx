@@ -1,15 +1,14 @@
 import { Routes, Route } from "react-router-dom";
-import { DefaultLayout } from "../layout/DefaultLayout";
 import { Dish } from "../pages/Dish";
 import { Home } from "../pages/Home";
+import { Payment } from "../pages/Payment";
 
 export function AppRoutes() {
   return (
     <Routes>
-      <Route path="/" element={<DefaultLayout />}>
-        <Route path="/" element={<Home />}/>
-        <Route path="/dish/:id" element={<Dish />}/>
-      </Route>
+      <Route path="/" element={<Home />}/>
+      <Route path="/dish" element={<Dish />}/>
+      <Route path="/payment" element={<Payment />}/>
     </Routes>
   )
 }

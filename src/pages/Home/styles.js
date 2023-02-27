@@ -1,8 +1,8 @@
 import styled from "styled-components";
 
 export const Container = styled.div`
-  /* width: 138.6rem;
-  margin: 0 auto; */
+  width: 138.6rem;
+  margin: 0 auto;
   display: grid;
   grid-template-rows: 104px auto;
   grid-template-areas: "header" "content";

@@ -1,7 +1,8 @@
+import { Link } from "react-router-dom";
 import { AmountFoodIncluded } from "../../../../components/AmountFoodIncluded";
+import { Button } from "../../../../components/Button";
 import { Tag } from "../../../../components/Tag";
 import { Container, FoodInformation, Tags } from "./styles";
-// import food from "../../../assets/food/autunno.png"
 
 export function SelectedFood() {
   return (
@@ -22,7 +23,14 @@ export function SelectedFood() {
           <Tag name="tomate"/>
         </Tags>
 
-        <AmountFoodIncluded />
+          <AmountFoodIncluded>
+            <Link to="/payment">
+              <Button 
+                className="btn-include" 
+                title="incluir ∙ R$ 25,00"
+              />
+            </Link>
+          </AmountFoodIncluded>
         </FoodInformation>
     </Container>
   )

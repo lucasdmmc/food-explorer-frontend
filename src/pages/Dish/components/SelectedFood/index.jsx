@@ -7,7 +7,7 @@ import { Container, FoodInformation, Tags } from "./styles";
 export function SelectedFood() {
   return (
     <Container>
-      <img src="/src/assets/food/autunno.png" alt="" />
+      <img src="/public/food/peachy-pastrie.png" alt="" />
         <FoodInformation>
           <strong>Salada Ravanello</strong>
           <p>Rabanetes, folhas verdes e molho agridoce salpicados  <br /> 

@@ -108,7 +108,7 @@ export const AmountFoodContainer = styled.div`
 
 const animateFavorite = keyframes`
   50%, 100% {
-    transform: scale(2);
+    transform: scale(1.5);
   }
 
   0%, 100% {

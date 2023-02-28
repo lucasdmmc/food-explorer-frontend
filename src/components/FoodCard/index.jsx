@@ -20,7 +20,7 @@ export function FoodCard({ name, description, price, photo }) {
   return (
     <Container className="embla__slide responsive-card">
       <Link to="dish">
-        <img src={`/src/assets/food/${photo}`} alt="" />
+        <img src={`/public/food/${photo}`} alt="" />
       </Link>
       
       <strong>{name}</strong>

@@ -22,7 +22,6 @@ export const Container = styled.div`
     width: 100%;
     position: absolute;
     bottom: 0;
-    border: 1px solid;
   }
   ${({ isVisible }) => isVisible && css`
     opacity: 1;

@@ -1,6 +1,6 @@
 import { Container, Food, FoodInformation } from "./styles";
 
-import imgFood from "../../../../assets/food/autunno.png"
+import imgFood from "../../../../../public/food/autunno.png"
 
 
 export function Summary() {

@@ -45,7 +45,7 @@ export const Container = styled.div`
           width: 19.1rem;
           height: 14.9rem;
           position: absolute;
-          top: -25px;
+          top: -26px;
           right: -55px;
         }
         
@@ -79,6 +79,7 @@ export const Intro = styled.div`
 
   div {
     width: 100%;
+    object-fit: cover;
     display: flex;
     flex-direction: column;
     grid: 0.8rem;

@@ -33,7 +33,7 @@ export const Container = styled.footer`
     max-height: 7.7rem;
     align-items: center;
     gap: 0.8rem;
-    padding: 2rem;
+    padding: 4rem;
 
     strong {
       font-size: 1.2rem;

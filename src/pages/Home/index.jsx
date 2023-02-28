@@ -2,7 +2,6 @@ import { Header } from "../../components/Header";
 import { Container, ImgPosition, Intro } from "./styles";
 
 import introImg from "../../../src/assets/intro.png"
-// import responsiveIntro from "../../../src/assets/responsive-intro.png"
 import { Section } from "../../components/Section";
 import { Desserts } from "../../components/OurFood/desserts";
 import { Meals } from "../../components/OurFood/meals";
@@ -24,6 +23,7 @@ export function Home() {
       <Header setMenuIsVisible={setMenuIsVisible}/>
       <main className="responsive-main">
         <Intro className="intro">
+
           <ImgPosition>
             <img src={introImg} alt="" />
           </ImgPosition>

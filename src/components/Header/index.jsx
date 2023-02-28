@@ -55,15 +55,15 @@ export function Header({ setMenuIsVisible }) {
           </a>
         
         </Links>
-        </Content>
-      <ReceiptButton className="receipt" to="/payment">
-        <Button 
-          title={`Pedidos (0)`}
-          icon={Receipt}
-        />
+        <ReceiptButton className="receipt" to="/payment">
+          <Button 
+            title={`Pedidos (0)`}
+            icon={Receipt}
+          />
 
-        <SignOut size={35} weight="fill"/>
-      </ReceiptButton>
+          <SignOut size={35} weight="fill"/>
+        </ReceiptButton>
+        </Content>
     </Container>
     
     </>

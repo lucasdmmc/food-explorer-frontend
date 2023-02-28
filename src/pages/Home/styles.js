@@ -1,17 +1,17 @@
-import styled, { css } from "styled-components";
+import styled from "styled-components";
 
 export const Container = styled.div`
-  max-width: 100%;
   max-width: 138.6rem;
   margin: 0 auto;
   display: grid;
   grid-template-rows: 104px auto;
   grid-template-areas: "header" "content";
-  height: 100%;
+  height: 100vh;
+  overflow-x: hidden;;
   
   > main {
     grid-area: "content";
-    /* overflow-y: scroll; */
+    /* overflow-y: scroll;/ */
     overflow-x: hidden;
   }
 
@@ -20,18 +20,12 @@ export const Container = styled.div`
   @media(max-width: 428px) {
     padding: 0;
     margin: 0;
-    overflow-x: hidden;
+    min-width: 100%;
 
     .responsive-main {
       margin: 0;
       padding: 0;
-      max-width: 42.8rem;
-      opacity: 1;
-
-      ${({ menuIsVisible }) => menuIsVisible && css`
-        opacity: 0;
-        height: 0;
-      `}
+      max-width: 100%;
 
       .intro {
         margin: 0;
@@ -51,9 +45,8 @@ export const Container = styled.div`
         
         .intro-text {
           margin-right: 0.8rem;
-          width: 100%;
           strong {
-            font-size: 1.7rem;
+            font-size: 1.6rem;
           }
 
           span {
@@ -63,10 +56,9 @@ export const Container = styled.div`
       }
     }
   }
-  
   `
 export const Intro = styled.div`
-  max-width: 100%;
+  max-width: 138.6rem;
   background: linear-gradient(rgba(9, 30, 38, 1) 0%, rgba(0, 19, 28, 1) 100%) ;
   margin: 16.4rem 12.4rem 0;
   height: 26rem;

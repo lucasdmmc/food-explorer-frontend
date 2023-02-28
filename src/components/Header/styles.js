@@ -4,19 +4,23 @@ import { Link } from "react-router-dom";
 
 export const Container = styled.header`
   background: ${({ theme }) => theme.colors["dark-600"]};
-  max-width: 138.6rem;
-  width: 100%;
+  min-width: 138.6rem;
+  margin: 0 auto;
   height: 10.4rem;
-
   grid-area: header;
 
-  padding: 0 12.3rem;
-  
   display: flex;
+
+  padding: 0 12.3rem;
+
+  
+  
+  /* display: flex;
   align-items: center;
-  justify-content: space-between;
+  justify-content: center; */
 
   @media (max-width: 428px) {
+    min-width: 100%;
     padding: 0;
     margin: 0;
 
@@ -25,18 +29,13 @@ export const Container = styled.header`
     .links {
       opacity: 0;
     }
-
+    
     .responsive-header {
-      min-width: 42.8rem;
-
+      min-width: 100%;
       display: flex;
       align-items: center;
       justify-content: space-around;
       margin-top: 3.2rem;
-
-      ${({ showMenu }) => showMenu && css`
-        display: none;
-      `}
 
       button {
         border: none;
@@ -90,6 +89,7 @@ export const Container = styled.header`
 
 export const Content = styled.div`
   max-width: 112rem;
+  width: 100%;
   display: flex;
   align-items: center;
   gap: 3.2rem;
@@ -116,7 +116,7 @@ export const Links = styled.div`
 `
 
 export const LogoName = styled.div`
-  width: 54rem;
+  width: 77rem;
   display: flex;
   align-items: center;
   gap: 1.1rem;

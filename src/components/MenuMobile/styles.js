@@ -2,7 +2,6 @@ import styled, { css } from "styled-components";
 
 export const Container = styled.div`
   max-width: 42.8rem;
-  max-height: 91.8rem;
   height: 100vh;
   border: 1px solid;
   position: absolute;
@@ -23,6 +22,7 @@ export const Container = styled.div`
     width: 100%;
     position: absolute;
     bottom: 0;
+    border: 1px solid;
   }
   ${({ isVisible }) => isVisible && css`
     opacity: 1;

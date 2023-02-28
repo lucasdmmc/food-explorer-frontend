@@ -34,15 +34,15 @@ export const Container = styled.footer`
     align-items: center;
     gap: 0.8rem;
     padding: 2rem;
+
     strong {
-      margin-right: 1rem;
       font-size: 1.2rem;
       color: ${({ theme }) => theme.colors["light-500"]};
 
     }
     .responsive-logo-footer {
       span {
-        font-size: 1.6rem;
+        font-size: 1.23rem;
       }
     }
 

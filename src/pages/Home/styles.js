@@ -1,4 +1,4 @@
-import styled from "styled-components";
+import styled, { css } from "styled-components";
 
 export const Container = styled.div`
   max-width: 138.6rem;
@@ -21,6 +21,12 @@ export const Container = styled.div`
     padding: 0;
     margin: 0;
     min-width: 100%;
+    opacity: 1;
+
+
+    ${({menuIsVisible}) => menuIsVisible && css`
+      opacity: 0;
+    `}
 
     .responsive-main {
       margin: 0;

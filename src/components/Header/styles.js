@@ -117,10 +117,14 @@ export const Links = styled.div`
 
 export const LogoName = styled.div`
   width: 77rem;
-  display: flex;
-  align-items: center;
-  gap: 1.1rem;
-
+  a {
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    gap: 1.1rem;
+    display: flex;
+  }
+  
   svg {
     fill: ${({ theme }) => theme.colors["cake-100"]};
   }

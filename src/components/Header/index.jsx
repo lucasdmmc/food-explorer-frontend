@@ -9,6 +9,7 @@ import { Input } from "../Input";
 import { FiMenu, FiSearch } from "react-icons/fi"
 import { Button } from "../Button";
 import { Hexagon, Receipt, SignOut } from "phosphor-react";
+import { Link } from "react-router-dom";
 
 export function Header({ setMenuIsVisible }) {
   return (
@@ -33,10 +34,11 @@ export function Header({ setMenuIsVisible }) {
 
       <Content>
         <LogoName className="logoName">
-          <Hexagon size={30} weight="fill"/>
-          <span>food explorer</span>
+          <Link to="/">
+            <Hexagon size={30} weight="fill"/>
+            <span>food explorer</span>
+          </Link>
         </LogoName>
-
         
         <Input
           icon={FiSearch}
@@ -46,13 +48,13 @@ export function Header({ setMenuIsVisible }) {
 
         <Links className="links">
 
-          <a href="#" className="a">
+          <Link to="/favorites">
             Meus favoritos
-          </a>
+          </Link>
 
-          <a href="#" >
-            Histórico de pedidos
-          </a>
+          <Link to="/order">
+          Histórico de pedidos
+          </Link>
         
         </Links>
         <ReceiptButton className="receipt" to="/payment">

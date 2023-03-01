@@ -25,32 +25,33 @@ export const Container = styled.div`
       fill: ${({ theme }) => theme.colors["cake-100"]};
     }
   }
+`
 
-  form {
-    display: flex;
-    flex-direction: column;
-    gap: 3.2rem;
-    width: 47.6rem;
-    background: ${({ theme }) => theme.colors["dark-700"]};
+export const Form = styled.div`
+  display: flex;
+  flex-direction: column;
+  gap: 3.2rem;
+  width: 47.6rem;
+  background: ${({ theme }) => theme.colors["dark-700"]};
 
-    padding: 6.4rem;
+  padding: 6.4rem;
 
-    border-radius: 16px;
+  border-radius: 16px;
 
-    label {
-      color: ${({ theme }) => theme.colors["light-400"]};
-      line-height: 100%;
-    }
+  label {
+    color: ${({ theme }) => theme.colors["light-400"]};
+    line-height: 100%;
+  }
 
-    input {
-      padding: 1.4rem;
-    }
+  input {
+    padding: 1.4rem;
+    width:  34.8rem;
+  }
 
-    button, a {
-      font-weight: 500;
-      font-size: 1.4rem;
-      font-family: "Poppins", sans-serif;
-      text-align: center;
-    }
+  button, a {
+    font-weight: 500;
+    font-size: 1.4rem;
+    font-family: "Poppins", sans-serif;
+    text-align: center;
   }
 `

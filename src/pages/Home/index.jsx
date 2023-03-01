@@ -34,7 +34,7 @@ export function Home() {
           </div>
         </Intro>
 
-        <Section title="Reifeições">
+        <Section title="Refeições">
           <Meals />
         </Section>
         <Section title="Sobremesas">

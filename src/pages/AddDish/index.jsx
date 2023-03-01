@@ -86,7 +86,9 @@ export function AddDish() {
           />
         </div>
 
-        <Button title="Salvar alterações"/>
+        <Button 
+          title="Salvar alterações"
+        />
       </Content>
       <Footer />
     </Container>

@@ -14,7 +14,6 @@ export const Container = styled.div`
  @media screen and (min-width: 1386px) {
     padding: 0;
     max-width: 138.6rem;
-    /* border: 1px solid; */
 
     .flex-desktop {
       height: 100%;
@@ -33,6 +32,15 @@ export const Container = styled.div`
 
       h2 {
         display: initial;
+        font-size: 3.2rem;
+        font-weight: 500;
+        text-align: center;
+        font-family: "Poppins", sans-serif;
+      }
+
+      input {
+        border-radius: 5px;
+        border: 1px solid ${({ theme }) => theme.colors["light-100"]};;
       }
     }
   }

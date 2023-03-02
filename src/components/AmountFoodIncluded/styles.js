@@ -5,6 +5,7 @@ export const Container = styled.div`
   display: flex;
   align-items: center;
   gap: 1.8rem;
+  border: 1px solid;
 
   @media(max-width: 428px) {
     .food-amount {

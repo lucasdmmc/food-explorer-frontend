@@ -1,16 +1,16 @@
 import { Hexagon } from "phosphor-react";
 import { Container } from "./styles";
-
+import { LogoFooter } from "./styles";
 
 export function Footer() {
   return (
-    <Container className="container">
-      <div className="responsive-logo-footer">
-        <Hexagon size={30} weight="fill"/>
-        <span>food explorer</span>
-      </div>
+    <Container>
+      <LogoFooter>
+        <Hexagon size={22} weight="fill"/>
+        <strong>Food Explorer</strong>
+      </LogoFooter>
 
-      <strong>© 2023 - Todos os direitos reservados.</strong>
+      <span>© 2023 - Todos os direitos reservados.</span>
     </Container>
   )
 }

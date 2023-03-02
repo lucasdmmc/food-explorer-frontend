@@ -28,13 +28,7 @@ export const GlobalStyles = createGlobalStyle`
     text-decoration: none;
     color: ${({ theme }) => theme.colors["light-100"]};
   }
-
-  button {
-    border: none;
-    background: none;
-    outline: none;
-  }
-
+  
   ::-webkit-scrollbar {
   width: 0.6rem;
   }

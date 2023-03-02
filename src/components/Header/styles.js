@@ -1,157 +1,132 @@
-import styled, { css } from "styled-components";
-import { Link } from "react-router-dom";
-
+import styled from "styled-components";
 
 export const Container = styled.header`
-  background: ${({ theme }) => theme.colors["dark-600"]};
-  min-width: 138.6rem;
-  margin: 0 auto;
-  height: 10.4rem;
-  grid-area: header;
-
-  display: flex;
-
-  padding: 0 12.3rem;
-
-  
-  
-  /* display: flex;
-  align-items: center;
-  justify-content: center; */
-
-  @media (max-width: 428px) {
-    min-width: 100%;
-    padding: 0;
-    margin: 0;
-
-    .logoName, 
-    .search,
-    .links {
-      opacity: 0;
-    }
-    
-    .responsive-header {
-      min-width: 100%;
-      display: flex;
-      align-items: center;
-      justify-content: space-around;
-      margin-top: 3.2rem;
-
-      button {
-        border: none;
-        background: none;
-
-        display: flex;
-        align-items: center;
-        cursor: pointer;
-
-        position: relative;
-
-        > span {
-          position: absolute;
-          top: -3px;
-          right: -3px;
-          color: white;
-          padding: 0.2rem 0.5rem;
-          border-radius: 50%;
-          background: ${({ theme }) => theme.colors["tomato-100"]}
-        }
-
-        svg {
-          color: ${({ theme }) => theme.colors["light-100"]}
-        }
-      }
-
-      .logo {
-        display: flex;
-        align-items: center;
-        gap: 0.8rem;
-
-        span {
-          font-size: 2.1rem;
-          font-weight: bold;
-        }
-
-        svg {
-          fill: ${({ theme }) => theme.colors["cake-100"]}
-        }
-
-      }
-    }
-  }
-
-  @media (min-width: 428px) {
-    .responsive-header {
-      display: none;
-    }
-  }
-  `
-
-export const Content = styled.div`
-  max-width: 112rem;
-  width: 100%;
+  max-width: 42.8rem;
+  max-height: 11.4rem;
+  background: ${({ theme }) => theme.colors["dark-700"]};
+  padding: 6rem 3.6rem 2.93rem 2.8rem;
   display: flex;
   align-items: center;
-  gap: 3.2rem;
-  
-  input {
-    width: 100%;
-  }
+  justify-content: space-between;
 
-  a {
-    transition: color 0.4s;
-  }
-
-  a:hover {
-    color: ${({ theme }) => theme.colors["light-400"]};
-  }
-`
-
-export const Links = styled.div`
-  width: 100%;
-  display: flex;
-  align-items: center;
-  gap: 3.2rem;
-
-`
-
-export const LogoName = styled.div`
-  width: 77rem;
-  a {
-    cursor: pointer;
-    display: flex;
-    align-items: center;
-    gap: 1.1rem;
-    display: flex;
+  .btn-order-signout,
+  .navigation {
+    display: none;
   }
   
   svg {
-    fill: ${({ theme }) => theme.colors["cake-100"]};
+    cursor: pointer;
   }
 
-  span {
-    font-weight: bold;
-    font-size: 2.4rem;
-    line-height: 2.8rem;
+  div {
+    position: relative;
+
+    span {
+      position: absolute;
+      top: -8px;
+      right: -8px;
+      background: ${({ theme}) => theme.colors["tomato-100"]};
+      padding: 0.2rem 0.5rem;
+      border-radius: 50%;
+    }
+  }
+
+  @media screen and (min-width: 1368px) {
+    max-width: 136.8rem;
+    padding: 0;
+    margin: 0;
+    padding: 2.4rem 12.3rem;
+    display: flex;
+    /* justify-content: center; */
+
+    .btn-order-signout,
+    .navigation {
+      display: inherit;
+    }
+
+    
+    .receipt-btn,
+    .menu-btn {
+      display: none;
+    }
+
+    .logo-header {
+      display: flex;
+      align-items: center;
+      gap: 1rem;
+
+      strong {
+        font-size: 2.4rem;
+      }
+    }
+
+    .btn-order-signout {
+      display: flex;
+      align-items: center;
+      gap: 2.9rem;
+
+      button {
+        padding: 1.6rem 3.2rem;
+        border: none;
+        display: flex;
+        align-items: center;
+        gap: 1.1rem;
+        width: 18.7rem;
+      }
+    }
   }
 `
-export const ReceiptButton = styled(Link)`
-  
+
+export const LogoHeader = styled.div`
   display: flex;
   align-items: center;
-  gap: 2.9rem;
+  gap: 0.8rem;
 
-
-  button {
-    width: 18.7rem;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    gap: 1.1rem;
-    border: none;
+  svg {
+    fill: ${({ theme}) => theme.colors["cake-100"]};
   }
 
-  @media(max-width: 428px) {
-    opacity: 0
+  strong {
+    font-size: 2.1rem;
   }
 `
+
+// ============== RESPONSIVES COMPONENTS ========================
+
+export const Navigation = styled.div`
+  max-width: 80.6rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 3.2rem;
+`
+
+export const Links = styled.div`
+  display: flex;
+  align-items: center;
+  gap: 3.2rem ;
+`
+
+export const InputContainer = styled.div`
+  display: flex;
+  align-items: center;
+  width: 30rem;
+  border-radius: 5px;
+  background: ${({ theme }) => theme.colors["dark-900"]};
+
+  svg {
+    margin-left: 0.6rem;
+  }
+  
+  input {
+    color: ${({ theme }) => theme.colors["light-300"]};
+    width: 100%;
+    background: none;
+    border: none;
+    outline: none;
+    padding: 1.6rem;
+
+
+  }
+`
+

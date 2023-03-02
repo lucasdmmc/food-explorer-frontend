@@ -21,7 +21,7 @@ export function Home() {
       />
     <Container menuIsVisible={menuIsVisible}>
       <Header setMenuIsVisible={setMenuIsVisible}/>
-      <main className="responsive-main">
+      {/* <main className="responsive-main">
         <Intro className="intro">
 
           <ImgPosition>
@@ -45,7 +45,7 @@ export function Home() {
         </Section>
 
         <Footer />
-      </main>
+      </main> */}
     </Container>
     </>
   )

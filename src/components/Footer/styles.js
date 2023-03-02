@@ -1,51 +1,32 @@
 import styled from "styled-components";
 
 export const Container = styled.footer`
-  width: 138.6rem;
-  height: 7.7rem;
-  padding: 0 12.3rem;
-  background: ${({ theme }) => theme.colors["dark-600"]};
-
   display: flex;
   align-items: center;
-  justify-content: space-between;
+  gap: 2rem;
+  max-width: 42.8rem;
+  background: ${({ theme }) => theme.colors["dark-600"]};
+  padding: 2.93rem 2.77rem;
 
-  strong {  
-    color: ${({ theme }) => theme.colors["light-200"]};
+  span {
+    font-size: 1.2rem;
+    line-height: 1.6rem;
+    fill: ${({ theme }) => theme.colors["light-200"]};
+  }
+`
+
+export const LogoFooter = styled.div`
+  display: flex;
+  align-items: center;
+  gap: 0.64rem;
+
+  svg {
+    fill: ${({ theme }) => theme.colors["light-700"]};
   }
 
-  > div {
-    display: flex;
-    align-items: center;
-    gap: 1.1rem;
+  strong {
+    font-size: 1.52rem;
+    line-height: 1.8rem;
     color: ${({ theme }) => theme.colors["light-700"]};
-    font-size: 2.4rem;
-    font-weight: bold;
-
-    svg {
-      fill: ${({ theme }) => theme.colors["light-700"]};
-    }
   }
-
-  @media(max-width: 428px) {
-    max-width: 42.9rem;
-    display: flex;
-    max-height: 7.7rem;
-    align-items: center;
-    gap: 0.8rem;
-    padding: 4rem;
-
-    strong {
-      font-size: 1.2rem;
-      color: ${({ theme }) => theme.colors["light-500"]};
-
-    }
-    .responsive-logo-footer {
-      span {
-        font-size: 1.23rem;
-      }
-    }
-
-  }
-
 `

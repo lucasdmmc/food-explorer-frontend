@@ -32,56 +32,58 @@ export function SignUp() {
   }
   return (
     <Container>
-      <Logo>
-        <Hexagon size={49} weight="fill"/>
-        <h1>food explorer</h1>
-      </Logo>
+      <div className="flex-desktop">
+        <Logo>
+          <Hexagon size={49} weight="fill"/>
+          <h1>food explorer</h1>
+        </Logo>
 
 
-      <Form>
-        <h2>Crie sua conta</h2>
-      
-      <div>
-        <span>
-          Seu nome
-        </span>
-          <Input
-            type="text"
-            placeholder="Exemplo: Maria da Silva"
-            onChange={(e) => setName(e.target.value)}
+        <Form>
+          <h2>Crie sua conta</h2>
+        
+        <div>
+          <span>
+            Seu nome
+          </span>
+            <Input
+              type="text"
+              placeholder="Exemplo: Maria da Silva"
+              onChange={(e) => setName(e.target.value)}
+            />
+        </div>
+        <div>
+          <span>
+            Email
+          </span>
+            <Input
+              type="text"
+              placeholder="Exemplo: exemplo@exemplo.com.br"
+              onChange={(e) => setEmail(e.target.value)}
+            />
+        </div>
+
+        <div>
+          <span>
+            Senha
+          </span>
+            <Input
+              type="password"
+              placeholder="No mínimo 6 caracteres"
+              onChange={(e) => setPassword(e.target.value)}
+            />
+        </div>
+
+          <Button
+            onClick={handleSignUp}
+            title="Criar conta" 
           />
-      </div>
-      <div>
-        <span>
-          Email
-        </span>
-          <Input
-            type="text"
-            placeholder="Exemplo: exemplo@exemplo.com.br"
-            onChange={(e) => setEmail(e.target.value)}
-          />
-      </div>
 
-      <div>
-        <span>
-          Senha
-        </span>
-          <Input
-            type="password"
-            placeholder="No mínimo 6 caracteres"
-            onChange={(e) => setPassword(e.target.value)}
-          />
+          <Link to="/">
+            Já tenho uma conta
+          </Link>
+        </Form>
       </div>
-
-        <Button
-          onClick={handleSignUp}
-          title="Criar conta" 
-        />
-
-        <Link to="/">
-          Já tenho uma conta
-        </Link>
-      </Form>
     </Container>
   )
 }

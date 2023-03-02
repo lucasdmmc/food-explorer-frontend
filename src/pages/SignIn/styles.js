@@ -1,56 +1,72 @@
 import styled from "styled-components";
 
 export const Container = styled.div`
-  padding: 9rem 10.8rem 11.2rem 15.3rem;
-  max-width: 138.6rem;
-  margin: 0 auto;
-  
+ max-width: 42.8rem;
+ margin: 0 auto;
+ height: 100vh;
+
+ display: flex;
+ flex-direction: column;
+ justify-content: center;
+
+ padding: 0 4.7rem 0 6.5rem;
+
+ @media screen and (min-width: 1386px) {
+    padding: 0;
+    max-width: 138.6rem;
+    /* border: 1px solid; */
+
+    .flex-desktop {
+      height: 100%;
+      width: 100%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 30.6rem;
+    }
+    
+    form {
+      background: ${({ theme }) => theme.colors["dark-700"]};
+      border-radius: 16px;
+      min-width: 47.6rem;
+      padding: 6.4rem;
+
+      h2 {
+        display: initial;
+      }
+    }
+  }
+
+`
+export const Logo = styled.div`
   display: flex;
   align-items: center;
-  justify-content: center;
-  gap: 30.6rem;
-  height: 100vh;
+  gap: 1rem;
 
-  div {
-    display: flex;
-    align-items: center;
-    gap: 1.9rem;
+  margin-bottom: 7.3rem;
 
-    h1 {
-      font-size: 4.2rem;
-      line-height: 4.9rem;
-    }
+  svg {
+    fill: ${({ theme }) => theme.colors["cake-100"]}
+  }
+`
 
-    svg {
-      fill: ${({ theme }) => theme.colors["cake-100"]};
-    }
+export const Form = styled.form`
+  display: flex;
+  flex-direction: column;
+  gap: 3.2rem;
+
+  h2 {
+    display: none;
   }
 
-  form {
-    display: flex;
-    flex-direction: column;
-    gap: 3.2rem;
-    width: 47.6rem;
-    background: ${({ theme }) => theme.colors["dark-700"]};
-
-    padding: 6.4rem;
-
-    border-radius: 16px;
-
-    label {
-      color: ${({ theme }) => theme.colors["light-400"]};
-      line-height: 100%;
-    }
-
-    input {
-      padding: 1.4rem;
-    }
-
-    button, a {
-      font-weight: 500;
-      font-size: 1.4rem;
-      font-family: "Poppins", sans-serif;
-      text-align: center;
-    }
+  span {
+    position: relative;
+    bottom: 0.8rem;
+    margin-bottom: 0.8rem;
   }
+
+  a {
+    text-align: center;
+  }
+
 `

@@ -1,4 +1,4 @@
-import { Container, Form } from "./styles";
+import { Container, Form, Logo } from "./styles";
 import { Input } from "../../components/Input"
 import { Button } from "../../components/Button"
 import { Link } from "react-router-dom";
@@ -32,40 +32,46 @@ export function SignUp() {
   }
   return (
     <Container>
-      <div>
+      <Logo>
         <Hexagon size={49} weight="fill"/>
         <h1>food explorer</h1>
-      </div>
+      </Logo>
 
 
       <Form>
         <h2>Crie sua conta</h2>
-
-        <label htmlFor="">
+      
+      <div>
+        <span>
           Seu nome
+        </span>
           <Input
             type="text"
             placeholder="Exemplo: Maria da Silva"
             onChange={(e) => setName(e.target.value)}
           />
-        </label>
-        <label htmlFor="">
-
+      </div>
+      <div>
+        <span>
           Email
+        </span>
           <Input
             type="text"
             placeholder="Exemplo: exemplo@exemplo.com.br"
             onChange={(e) => setEmail(e.target.value)}
           />
-        </label>
-        <label htmlFor="">
+      </div>
+
+      <div>
+        <span>
           Senha
+        </span>
           <Input
             type="password"
             placeholder="No mínimo 6 caracteres"
             onChange={(e) => setPassword(e.target.value)}
           />
-        </label>
+      </div>
 
         <Button
           onClick={handleSignUp}

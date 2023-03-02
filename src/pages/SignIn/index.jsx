@@ -1,73 +1,66 @@
-import { Container } from "./styles";
+import * as yup from "yup";
+
+import { Container, Form, Logo } from "./styles";
+
 import { Input } from "../../components/Input"
 import { Button } from "../../components/Button"
-import { Link } from "react-router-dom";
 import { Hexagon } from "phosphor-react";
-import { api } from "../../services/api";
+
+import { Link } from "react-router-dom";
+import { useAuth } from "../../hooks/useAuth";
 import { useEffect, useState } from "react";
 
 export function SignIn() {
+  const { signIn } = useAuth()
+
   const [email, setEmail] = useState("")
   const [password, setPassword] = useState("")
 
-
-  async function signIn({ email, password }) {
-  try {
-    const response = await api.post("/sessions", { email, password });
-    console.log(response.data)
-  } catch (error) {
-      if(error.response){
-        alert(error.response.data.message)
-      } else {
-        alert("Não foi possivel entrar")
-      }
-    }
-  }
-
   function handleSignIn() {
-    signIn({ email, password })
+    signIn({email, password})
   }
-
 
   return (
     <Container>
-      <div>
-        <Hexagon size={49} weight="fill"/>
+      <div className="flex-desktop">
+        <Logo className="food-explorer">
+          <Hexagon size={49} weight="fill"/>
 
-        <h1>food explorer</h1>
+          <h1>food explorer</h1>
+        </Logo>
+
+        <Form >
+            <h2>Faça login</h2>
+            
+            <div>
+              <span>Email</span>
+                <Input
+                  type="email"
+                  onChange={(e) => setEmail(e.target.value)}
+                  placeholder="Exemplo: exemplo@exemplo.com.br"
+                />
+            </div>
+            <div>
+              <span>Senha</span>
+                <Input
+                  type="password" 
+                  onChange={(e) => setPassword(e.target.value)}
+                  placeholder="No mínimo 6 caracteres"
+                />
+            </div>
+
+            <Button 
+              onClick={handleSignIn}
+              type="button" 
+              title="Entrar" 
+            />
+
+            <Link to="/register">
+              Criar uma conta
+            </Link>
+          </Form>
       </div>
+        </Container>
 
-
-      <form action="">
-        <h2>Faça login</h2>
-
-        <label htmlFor="">
-          Email
-          <Input
-            type="text"
-            onChange={(e) => setEmail(e.target.value)}
-            placeholder="Exemplo: exemplo@exemplo.com.br"
-          />
-        </label>
-        <label htmlFor="">
-          Senha
-          <Input
-            type="password" 
-            onChange={(e) => setPassword(e.target.value)}
-            placeholder="No mínimo 6 caracteres"
-          />
-        </label>
-
-        <Button 
-          onClick={handleSignIn}
-          type="button" 
-          title="Entrar" 
-        />
-
-        <Link to="/register">
-          Criar uma conta
-        </Link>
-      </form>
-    </Container>
   )
 }

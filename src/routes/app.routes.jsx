@@ -13,7 +13,7 @@ export function AppRoutes() {
       <Route path="/dish" element={<Dish />}/>
       <Route path="/order" element={<Order />}/>
       <Route path="/favorites" element={<Favorites />}/>
-      <Route path="/adddish" element={<AddDish />}/>
+      {/* <Route path="/adddish" element={<AddDish />}/> */}
       <Route path="/payment" element={<Payment />}/>
     </Routes>
   )

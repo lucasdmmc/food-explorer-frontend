@@ -1,21 +1,23 @@
-import { Hexagon, Receipt } from "phosphor-react";
-import { useState } from "react";
+import { Hexagon, Receipt, SignOut } from "phosphor-react";
+import { useAuth } from "../../hooks/useAuth"
 import { FiLogOut, FiMenu, FiSearch } from "react-icons/fi";
-import { Link } from "react-router-dom";
+import { Link, useNavigate, useNavigation } from "react-router-dom";
 import { Button } from "../Button";
 import { Input } from "../Input";
 import { MenuMobile } from "../MenuMobile";
 import { Container, InputContainer, Links, LogoHeader, Navigation } from "./styles";
 
 export function Header({setMenuIsVisible}) {
-  // const [menuIsVisible, setMenuIsVisible] = useState(false)
+  const navigate = useNavigate()
+  const { signOut } = useAuth()
+
+  function handleSignOut() {
+    navigate("/")
+    signOut();
+  }
 
   return (
     <>
-      {/* <MenuMobile
-        menuIsVisible={menuIsVisible}
-        setMenuIsVisible={setMenuIsVisible}
-      /> */}
       <Container>
         <FiMenu
           onClick={() => setMenuIsVisible(true)}
@@ -38,11 +40,11 @@ export function Header({setMenuIsVisible}) {
           </InputContainer>
           <Links>
 
-            <Link>
+            <Link to="/favorites">
               Meus favoritos
             </Link>
 
-            <Link>
+            <Link to="/order">
               Histórico de pedidos
             </Link>
           </Links>
@@ -53,7 +55,7 @@ export function Header({setMenuIsVisible}) {
             icon={Receipt}
             title={`Pedidos (0)`}
           />
-          <FiLogOut size={27}/>
+          <FiLogOut onClick={handleSignOut} size={27}/>
         </div>
         
         <div className="receipt-btn">

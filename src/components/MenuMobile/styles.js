@@ -23,6 +23,7 @@ export const Container = styled.div`
     bottom: 0;
   }
   ${({ isVisible }) => isVisible && css`
+    /* height: 115vh; */
     opacity: 1;
     transform: translateY(0px);
     pointer-events: auto;

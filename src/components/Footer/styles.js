@@ -1,17 +1,25 @@
 import styled from "styled-components";
 
 export const Container = styled.footer`
+  min-width: 42.8rem;
   display: flex;
   align-items: center;
   gap: 2rem;
-  max-width: 42.8rem;
   background: ${({ theme }) => theme.colors["dark-600"]};
   padding: 2.93rem 2.77rem;
-
+  max-width: 136.8rem;
+  
   span {
     font-size: 1.2rem;
     line-height: 1.6rem;
     fill: ${({ theme }) => theme.colors["light-200"]};
+  }
+  
+  @media(min-width: 1368px) {
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    padding: 2.3rem 12.3rem;
   }
 `
 

@@ -1,13 +1,14 @@
 import styled from "styled-components";
 
 export const Container = styled.div`
-  /* width: 100%; */
-
   background: ${({ theme }) => theme.colors["dark-900"]};
   border-radius: 5px;
+
+  display: flex;
+  align-items: center;
   
   > svg {
-    /* margin-left: 0.6rem; */
+    margin-left: 0.6rem;
   }
   
   input {

@@ -1,16 +1,20 @@
 import styled, { css } from "styled-components";
 
 export const Container = styled.div`
-  max-width: 42.8rem;
+  min-width: 42.8rem;
   margin: 0 auto;
-  height: 100%;
+  min-height: 91.3rem;
 
   ${({menuIsVisible}) => menuIsVisible && css`
       opacity: 0;
+      height: 0;
   `}
+
+ 
 `
 
 export const Content = styled.div`
+  height: 100%;
   padding: 3.6rem 5.6rem 5.4rem 5.9rem;
 
   a {
@@ -30,6 +34,11 @@ export const Content = styled.div`
     &:hover {
       filter: brightness(0.8);
     }
+  }
+
+  @media (min-width: 1368px) {
+    max-width: 136.8rem;
+    margin: 0 auto;
   }
 `
 

@@ -1,7 +1,7 @@
 import styled from "styled-components";
 
 export const Container = styled.header`
-  max-width: 42.8rem;
+  min-width: 42.8rem;
   max-height: 11.4rem;
   background: ${({ theme }) => theme.colors["dark-700"]};
   padding: 6rem 3.6rem 2.93rem 2.8rem;
@@ -31,10 +31,10 @@ export const Container = styled.header`
     }
   }
 
-  @media screen and (min-width: 1368px) {
+  @media (min-width: 1368px) {
     max-width: 136.8rem;
     padding: 0;
-    margin: 0;
+    margin: 0 auto;
     padding: 2.4rem 12.3rem;
     display: flex;
     /* justify-content: center; */
@@ -87,6 +87,7 @@ export const LogoHeader = styled.div`
   }
 
   strong {
+    text-transform: lowercase;
     font-size: 2.1rem;
   }
 `
@@ -99,6 +100,8 @@ export const Navigation = styled.div`
   align-items: center;
   justify-content: center;
   gap: 3.2rem;
+  margin-left: 4.3rem;
+  margin-right: 2.4rem;
 `
 
 export const Links = styled.div`
@@ -111,6 +114,7 @@ export const InputContainer = styled.div`
   display: flex;
   align-items: center;
   width: 30rem;
+  /* margin-left: 4.3rem; */
   border-radius: 5px;
   background: ${({ theme }) => theme.colors["dark-900"]};
 

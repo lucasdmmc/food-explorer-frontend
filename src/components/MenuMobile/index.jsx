@@ -3,8 +3,18 @@ import { FiSearch } from "react-icons/fi";
 import { Input } from "../Input";
 import { Container, Content, Header, Links } from "./styles";
 import { Footer } from "../Footer";
+import { Link, useNavigate } from "react-router-dom";
+import { useAuth } from "../../hooks/useAuth";
 
 export function MenuMobile({ menuIsVisible, setMenuIsVisible }) {
+  const navigate = useNavigate()
+  const { signOut } = useAuth()
+
+  function handleSignOut() {
+    navigate("/")
+    signOut();
+  }
+
   return (
     <Container isVisible={menuIsVisible}>
       <Header>
@@ -23,13 +33,19 @@ export function MenuMobile({ menuIsVisible, setMenuIsVisible }) {
       <Links>
         <ul>
           <li>
-            <a href="">Histórico de pedidos</a>
+            <Link to="/order">
+              Histórico de pedidos
+            </Link>
           </li>
           <li>
-            <a href="">Meu favoritos</a>
+            <Link to="/favorites">
+              Meu favoritos
+            </Link>
           </li>
           <li>
-            <a href="">Sair</a>
+            <Link onClick={handleSignOut}>
+              Sair
+            </Link>
           </li>
         </ul>
       </Links>

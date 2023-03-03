@@ -1,5 +1,5 @@
 import useEmblaCarousel from "embla-carousel-react"
-import { Container, SliderContainer } from "./styles";
+import { Container, Slider, SliderContainer } from "./styles";
 import { FoodCard } from "../FoodCard";
 import { drinks } from "../../data/drinks";
 
@@ -10,7 +10,7 @@ export function Drinks() {
     dragFree: true,
   })
   return (
-    <div style={{ overflow: "hidden", width: "100%"}}>
+    <Slider >
       <Container >
         <div className="embla" ref={emblaRef}>
           <SliderContainer className="embla__container container">
@@ -26,6 +26,6 @@ export function Drinks() {
           </SliderContainer>
         </div>
       </Container>
-    </div>
+    </Slider>
   )
 }

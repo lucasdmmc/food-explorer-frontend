@@ -1,18 +1,19 @@
 import { Header } from "../../components/Header";
-import { Container, ImgPosition, Intro } from "./styles";
+import { Meals } from "../../components/OurFood/meals";
+
 
 import introImg from "../../../src/assets/intro.png"
-import { Section } from "../../components/Section";
+import introMobileImg from "../../../src/assets/intro-mobile.png"
+import { Section } from "../../components/Section"
+import { MenuMobile } from "../../components/MenuMobile";
+import { useEffect, useState } from "react";
+import { Container, Intro, IntroInformation, Main } from "./styles";
 import { Desserts } from "../../components/OurFood/desserts";
-import { Meals } from "../../components/OurFood/meals";
 import { Drinks } from "../../components/OurFood/drinks";
 import { Footer } from "../../components/Footer";
-import { MenuMobile } from "../../components/MenuMobile";
-import { useState } from "react";
 
 export function Home() {
   const [menuIsVisible, setMenuIsVisible] = useState(false)
-
   return (
     <>
       <MenuMobile
@@ -21,32 +22,29 @@ export function Home() {
       />
     <Container menuIsVisible={menuIsVisible}>
       <Header setMenuIsVisible={setMenuIsVisible}/>
-      {/* <main className="responsive-main">
-        <Intro className="intro">
 
-          <ImgPosition>
-            <img src={introImg} alt="" />
-          </ImgPosition>
-
-          <div className="intro-text">
-            <strong>Sabores Inigualáveis</strong>
-            <span>Sinta o cuidado do preparo com ingredientes selecionados</span>
-          </div>
+      <Main>
+        <Intro isMobile={false} isDesktop className="intro-desktop">
+          <img className="intro-img-desktop" src={introImg} alt="" />
+          <img className="intro-img-mobile" src={introMobileImg} alt="" />
+          <IntroInformation className="intro-information-desktop">
+            <strong>Sabores inigualáveis</strong>
+            <span>Sinta o cuidado do preparo com ingredientes selecionados.</span>
+          </IntroInformation>
         </Intro>
 
         <Section title="Refeições">
           <Meals />
         </Section>
-        <Section title="Sobremesas">
+        <Section title="Refeições">
           <Desserts />
         </Section>
-        <Section title="Bebidas">
+        <Section title="Refeições">
           <Drinks />
         </Section>
-
         <Footer />
-      </main> */}
-    </Container>
+      </Main>
+      </Container>
     </>
   )
 }

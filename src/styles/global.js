@@ -6,7 +6,7 @@ export const GlobalStyles = createGlobalStyle`
     padding: 0;
     box-sizing: border-box;
   }
-
+  
   :root {
     font-size: 62.5%;
   }
@@ -16,7 +16,6 @@ export const GlobalStyles = createGlobalStyle`
     color: ${({ theme }) => theme.colors["light-100"]};
     -webkit-font-smoothing: antialiased;
     font-size: 1.6rem;
-    width: 100%;
   }
 
   body, input, textarea, button {
@@ -24,6 +23,11 @@ export const GlobalStyles = createGlobalStyle`
     font-weight: 400;
   }
 
+  button {
+    border: none;
+    background: none;
+    outline: none;
+  }
   a {
     text-decoration: none;
     color: ${({ theme }) => theme.colors["light-100"]};

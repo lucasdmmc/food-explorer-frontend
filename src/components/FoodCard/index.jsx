@@ -1,13 +1,44 @@
-import { Container, Favorites, AmountFoodContainer } from "./styles";
-import { FiHeart, FiMinus, FiPlus } from "react-icons/fi";
+import { Container, Favorites, AmountFoodContainer, AmountFoodIncluded, AmountFood } from "./styles";
+import { FiHeart } from "react-icons/fi";
 import { Button } from "../Button";
 import { Link } from "react-router-dom";
-import { AmountFoodIncluded } from "../AmountFoodIncluded";
-import { useState } from "react";
+import { useEffect, useState } from "react";
+import { useAuth } from "../../hooks/useAuth";
+import { Minus, Plus } from "phosphor-react";
+import { FormatMoney } from "../../utils/FormatMoney"
 
-export function FoodCard({ name, description, price, photo }) {
 
+export function FoodCard({ id, name, description, price, photo}) {
+  const { addFood, handleAddFoodInFavorite } = useAuth()
+  const [quantity, setQuantity] = useState(1)
   const [isActive, setIsActive] = useState(false)
+
+  const formattedMoney = FormatMoney(price)
+  function handleAddFood() {
+
+    const foods = {
+      id,
+      name,
+      description,
+      price,
+      photo,
+    }
+
+    const addToCard = {
+      ...foods,
+      quantity
+    }
+
+    addFood(addToCard)
+  }
+
+  function handleIncrease() {
+    setQuantity(state => state +1)
+  }
+
+  function handleDecrease() {
+    setQuantity(state => state -1)
+  }
 
   function handleFavorite() {
     if (isActive) {
@@ -19,24 +50,42 @@ export function FoodCard({ name, description, price, photo }) {
 
   return (
     <Container className="embla__slide responsive-card">
+
+      
       <Link to="dish">
-        <img src={`/public/food/${photo}`} alt="" />
+        <img src={`/food/${photo}`} alt="" />
       </Link>
       
       <strong>{name}</strong>
 
       <span className="description">{description}</span>
 
-      <span className="price">{price}</span>
+      <span className="price">{formattedMoney}</span>
 
       <AmountFoodContainer className="responsive-amountFood">
-        <AmountFoodIncluded/>
-        <Button title="Incluir" />
+        <AmountFoodIncluded>
+          <AmountFood>
+            <button
+              disabled={quantity <= 1} 
+              onClick={handleDecrease}>
+              <Minus size={20}/>
+            </button>
+            <span>{quantity}</span>
+            <button onClick={() => handleIncrease({quantity})}>
+              <Plus size={20}/>
+            </button>
+          </AmountFood>
+        </AmountFoodIncluded>
+          <Button
+            onClick={handleAddFood}
+            title="Incluir"
+            className="receipt-btn"
+          />
       </AmountFoodContainer>
 
 
       <Favorites onClick={handleFavorite} isActive={isActive}>
-        <FiHeart size={30}/>
+        <FiHeart onClick={() => handleAddFoodInFavorite({ id, name, photo })} size={30}/>
       </Favorites>
     </Container>
   

@@ -1,23 +1,50 @@
+import { useState } from "react";
 import { FiMinus, FiPlus } from "react-icons/fi";
+import { useAuth } from "../../hooks/useAuth";
 import { Button } from "../Button";
 import { Container, FoodAmount } from "./styles";
 
 export function AmountFoodIncluded({ children }) {
+  const { foodQuantity, handleAddFood, foods } = useAuth()
+  const [quantity, setQuantity] = useState(1)
+
+  function handleAddFoodInQuantity() {
+    const foodToAdd = {
+      ...foods,
+      quantity,
+    }
+    handle
+  }
+
+  function handleIncrease() {
+    setQuantity(state => state +1)
+  }
+
+  function handleDecrease() {
+    setQuantity(state => state -1)
+  }
+
   return (
+    <>
     <Container>
       <FoodAmount className="food-amount">
-        <button className="minus" >
+        <button
+          disabled={quantity <= 1}
+          onClick={handleDecrease} 
+          className="minus" >
           <FiMinus size={24}/>
         </button>
 
-        <span>01</span>
+        <span>{quantity}</span>
 
-        <button className="plus" >
+        <button onClick={handleIncrease} className="plus" >
           <FiPlus size={24}/>
         </button>
 
-        {children}
       </FoodAmount>
     </Container>
+    
+    {children}
+    </>
   )
 }

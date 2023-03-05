@@ -1,4 +1,5 @@
 import styled from "styled-components";
+import { Link } from "react-router-dom";
 
 export const Container = styled.header`
   min-width: 42.8rem;
@@ -77,7 +78,7 @@ export const Container = styled.header`
   }
 `
 
-export const LogoHeader = styled.div`
+export const LogoHeader = styled(Link)`
   display: flex;
   align-items: center;
   gap: 0.8rem;

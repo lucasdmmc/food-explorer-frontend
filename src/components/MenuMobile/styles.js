@@ -1,8 +1,7 @@
 import styled, { css } from "styled-components";
 
 export const Container = styled.div`
-  max-width: 42.8rem;
-  height: 100vh;
+  min-width: 42.8rem;
   position: absolute;
   top: 0;
   left: 0;
@@ -10,6 +9,9 @@ export const Container = styled.div`
   right: 0;
   z-index: 5;
   overflow-y: hidden;
+
+  /* border: 1px solid; */
+  min-height: 91.8rem;
   
   opacity: 0;
   pointer-events: none;
@@ -18,10 +20,11 @@ export const Container = styled.div`
 
   
   footer {
-    width: 100%;
     position: absolute;
     bottom: 0;
   }
+  
+
   ${({ isVisible }) => isVisible && css`
     /* height: 115vh; */
     opacity: 1;
@@ -58,7 +61,6 @@ export const Header = styled.div`
 
 export const Content = styled.div`
   padding: 0 2.8rem;
-
   input {
     width: 100%;
   }

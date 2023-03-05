@@ -1,53 +1,37 @@
 import { Container, Food, FoodInformation } from "./styles";
 
-import imgFood from "../../../../../public/food/autunno.png"
+import { useAuth } from "../../../../hooks/useAuth";
+import { FormatMoney } from "../../../../utils/FormatMoney";
 
 
 export function Summary() {
+  const { foodItem, totalFoodPrice, handleRemoveFood } = useAuth()
+
+  const foodITemTotal = FormatMoney(totalFoodPrice)
+  
+
   return (
     <Container>
       <strong>Meu pedido</strong>
-      <FoodInformation>
-        <img src={imgFood} alt="" />
+
+      {foodItem.map(food => {
+        return (
+        <FoodInformation key={food.id}>
+
+        <img src={`/food/${food.photo}`} alt="" />
         <Food>
-          <span className="name">1 x  Salada Radish</span>
-          <span className="price">R$ 25,97</span><br />
-          <button>
+          <span className="name">{food.quantity}x  {food.name}</span>
+          <span className="price">{FormatMoney(food.price * food.quantity)}</span><br />
+          <button onClick={() => handleRemoveFood(food.id)}>
             Excluir
           </button>
         </Food>
       </FoodInformation>
-      <FoodInformation>
-        <img src={imgFood} alt="" />
-        <Food>
-          <span className="name">1 x  Salada Radish</span>
-          <span className="price">R$ 25,97</span><br />
-          <button>
-            Excluir
-          </button>
-        </Food>
-      </FoodInformation>
-      <FoodInformation>
-        <img src={imgFood} alt="" />
-        <Food>
-          <span className="name">1 x  Salada Radish</span>
-          <span className="price">R$ 25,97</span><br />
-          <button>
-            Excluir
-          </button>
-        </Food>
-      </FoodInformation>
-      <FoodInformation>
-        <img src={imgFood} alt="" />
-        <Food>
-          <span className="name">1 x  Salada Radish</span>
-          <span className="price">R$ 25,97</span><br />
-          <button>
-            Excluir
-          </button>
-        </Food>
-      </FoodInformation>
-      <span>Total: R$ 103,88</span>
+
+        )
+      })}
+      <span>Total: {foodITemTotal}</span>
+      
     </Container>
   )
 }

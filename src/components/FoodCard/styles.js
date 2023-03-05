@@ -106,6 +106,38 @@ export const AmountFoodContainer = styled.div`
   gap: 1.8rem;
 `
 
+export const AmountFoodIncluded = styled.div`
+  display: flex;
+  align-items: center;
+  gap: 1.9rem;
+
+  svg {
+    color: ${({ theme }) => theme.colors["light-100"]};
+
+  }
+
+  button {
+    border: none;
+    background: none;
+    cursor: pointer;
+  }
+
+  .receipt-btn {
+    display: flex;
+    align-items: center;
+    gap: 0.74rem;
+    justify-content: center;
+    text-transform: capitalize;
+    font-size: 0.95rem;
+    background: ${({ theme }) => theme.colors["tomato-100"]};
+  }
+`
+export const AmountFood = styled.div`
+  display: flex;
+  align-items: center;
+  gap: 1.9rem;
+`
+
 const animateFavorite = keyframes`
   50%, 100% {
     transform: scale(1.5);

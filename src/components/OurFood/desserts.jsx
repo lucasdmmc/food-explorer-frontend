@@ -18,6 +18,7 @@ export function Desserts() {
           {desserts.map(dessert => (
             <FoodCard
               key={dessert.id}
+              id={dessert.id}
               name={dessert.name}
               description={dessert.description}
               price={dessert.price}

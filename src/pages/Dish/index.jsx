@@ -2,7 +2,6 @@ import { CaretLeft, Minus, Plus, Receipt } from "phosphor-react"
 import { Header } from "../../components/Header"
 import { AmountFoodIncluded, Container, Content, Food, IngredientsContainer, AmountFood } from "./styles"
 
-import food from "../../../public/food/salada-ravanello.png"
 import { Ingredients } from "./components/Ingretients/Ingredients"
 import { Button } from "../../components/Button"
 import { Footer } from "../../components/Footer"
@@ -29,7 +28,7 @@ export function Dish() {
           </Link>
 
           <Food>
-            <img src={food} alt="" />
+            <img src="" alt="" />
             <strong>Salada Ravanello</strong>
           </Food>
 

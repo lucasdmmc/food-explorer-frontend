@@ -1,10 +1,76 @@
+import produce from "immer";
 import { createContext, useEffect, useState } from "react";
+import { FavoriteFood } from "../pages/Favorites/styles";
 import { api } from "../services/api";
 
 export const AuthContext = createContext({})
 
 export function AuthProvider({ children }) {
   const [data, setData] = useState({})
+  const [foodItem, setFoodItem] = useState([])
+  const [favoriteFood, setFavoriteFood] = useState([])
+  console.log(favoriteFood)
+
+  const totalFoodPrice = foodItem.reduce((total, foodItem) => {
+    return total + foodItem.price * foodItem.quantity
+  }, 0)
+  console.log(totalFoodPrice)
+  const foodQuantity = foodItem.length
+
+  function addFood({ 
+    id, name, description, price, photo, quantity
+  }) {
+
+    const food = {
+      id,
+      name,
+      description,
+      price,
+      photo,
+      quantity
+    }
+
+    const foodExistsInSummary = foodItem.
+    findIndex(item => item.id === food.id)
+
+    console.log(foodExistsInSummary)
+
+    const newFood = produce(foodItem, (draft) => {
+      if(foodExistsInSummary < 0) {
+        draft.push(food)
+      } else {
+        draft[foodExistsInSummary].quantity += food.quantity
+      }
+    })
+
+    setFoodItem(newFood)
+  }
+
+  function handleAddFoodInFavorite({ id, name, photo }) {
+    const foodInFavorite = {
+      id,
+      name,
+      photo
+    }
+
+    const alreadyExistsFavoriteFood = favoriteFood.find(food => food.id === foodInFavorite.id)
+
+    if( alreadyExistsFavoriteFood) {
+      return alert("Você já favoritou esse prato")
+      
+    } else{
+      setFavoriteFood(state => [...state, foodInFavorite])
+    }
+  }
+  
+  function handleRemoveFavoriteFood(remove) {
+    setFavoriteFood(state => state.filter(state => state.id !== remove))
+  }
+
+  function handleRemoveFood(remove) {
+    setFoodItem(state => state.filter(food => food.id !== remove))
+
+  }
 
   async function signIn({ email, password }) {
     try {
@@ -41,12 +107,25 @@ export function AuthProvider({ children }) {
         api.defaults.headers.common["Authorization"] = `Bearer ${token}`
         setData({
           user,
-          user: JSON.parse(user)
+          // user: JSON.parse(user)
         })
       }
     }, [])
   return (
-    <AuthContext.Provider value={{ signIn, user: data.user, signOut }}>
+    <AuthContext.Provider value={{ 
+      signIn, 
+      user: data.user, 
+      signOut,
+      addFood,
+      handleRemoveFood,
+      foodItem,
+      foodQuantity,
+      totalFoodPrice,
+      handleAddFoodInFavorite,
+      favoriteFood,
+      handleRemoveFavoriteFood
+      }}
+    >
       {children}
     </AuthContext.Provider>
   )

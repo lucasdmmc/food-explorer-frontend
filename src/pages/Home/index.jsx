@@ -36,10 +36,10 @@ export function Home() {
         <Section title="Refeições">
           <Meals />
         </Section>
-        <Section title="Refeições">
+        <Section title="Sobremesas">
           <Desserts />
         </Section>
-        <Section title="Refeições">
+        <Section title="Bebidas">
           <Drinks />
         </Section>
         <Footer />

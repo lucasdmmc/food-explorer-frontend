@@ -37,7 +37,6 @@ export const Favorited = styled.div`
     margin: 3.4rem 12.3rem;
     
     main {
-      border: 1px solid;
       display: flex;
       /* justify-content: space-around; */
       overflow: hidden;;

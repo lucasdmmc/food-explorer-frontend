@@ -2,17 +2,20 @@ import styled, { css } from "styled-components";
 
 export const Container = styled.div`
   min-width: 42.8rem;
-  height: 100vh;
+  width: 100%;
   margin: 0 auto;
   display: grid;
+  /* height: 100vh; */
   grid-template-areas: "header" "content";
+  /* overflow-y: hidden;  */
 
-
+  
+  
   ${({ menuIsVisible }) => menuIsVisible && css`
-    opacity: 0;
-    height: 0;
+  opacity: 0;
+  height: 0;
   `}
-`
+  `
 
 export const Main = styled.main`
   grid-area: "content"; 

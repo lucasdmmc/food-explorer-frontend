@@ -9,7 +9,7 @@ import { Container, InputContainer, Links, LogoHeader, Navigation } from "./styl
 
 export function Header({setMenuIsVisible}) {
   const navigate = useNavigate()
-  const { signOut } = useAuth()
+  const { signOut, foodQuantity } = useAuth()
 
   function handleSignOut() {
     navigate("/")
@@ -25,7 +25,7 @@ export function Header({setMenuIsVisible}) {
           size={24}
         />
 
-        <LogoHeader className="logo-header">
+        <LogoHeader to="/" className="logo-header">
           <Hexagon size={30} weight="fill"/>
           <strong>Food Explorer</strong>
         </LogoHeader>
@@ -51,16 +51,20 @@ export function Header({setMenuIsVisible}) {
         </Navigation>
 
         <div className="btn-order-signout">
-          <Button 
-            icon={Receipt}
-            title={`Pedidos (0)`}
-          />
+          <Link to="/payment">
+            <Button 
+              icon={Receipt}
+              title={`Pedidos (${foodQuantity})`}
+            />
+          </Link>
           <FiLogOut onClick={handleSignOut} size={27}/>
         </div>
         
         <div className="receipt-btn">
-          <Receipt size={30}/>
-          <span>0</span>
+          <Link to="/payment">
+            <Receipt size={30}/>
+            <span>{foodQuantity}</span>
+          </Link>
         </div>
       </Container>
     </>

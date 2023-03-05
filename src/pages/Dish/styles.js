@@ -3,7 +3,7 @@ import styled, { css } from "styled-components";
 export const Container = styled.div`
   min-width: 42.8rem;
   margin: 0 auto;
-  min-height: 91.3rem;
+  /* min-height: 91.3rem; */
 
   ${({menuIsVisible}) => menuIsVisible && css`
       opacity: 0;
@@ -14,7 +14,7 @@ export const Container = styled.div`
 `
 
 export const Content = styled.div`
-  height: 100%;
+  /* height: 100%; */
   padding: 3.6rem 5.6rem 5.4rem 5.9rem;
 
   a {

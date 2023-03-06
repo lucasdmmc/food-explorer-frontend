@@ -20,7 +20,10 @@ export function Favorites() {
             <img src={`/food/${food.photo}`} alt="" />
             <div>
               <strong>{food.name}</strong>
-              <button onClick={() => handleRemoveFavoriteFood(food.id)}>Remover dos Favoritos</button>
+              <button 
+                onClick={() => handleRemoveFavoriteFood(food.id)}>
+                  Remover dos Favoritos
+                </button>
             </div>
           </FavoriteFood>
         )

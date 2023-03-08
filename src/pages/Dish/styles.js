@@ -3,18 +3,72 @@ import styled, { css } from "styled-components";
 export const Container = styled.div`
   min-width: 42.8rem;
   margin: 0 auto;
-  /* min-height: 91.3rem; */
 
   ${({menuIsVisible}) => menuIsVisible && css`
       opacity: 0;
       height: 0;
   `}
 
+
+  @media (min-width: 1368px) {
+    max-width: 136.8rem;
+    max-height: 82.4rem;
+
+    footer {
+      position: absolute;
+      bottom: 0;
+    }
+
+    .back-home-desktop {
+      padding: 0 6rem;
+    }
+
+    .food-desktop {
+      display: flex;
+      flex-direction: row;
+      align-items: center;
+      gap: 4.7rem;
+      padding-top: 4.2rem;
+      padding-left: 12.1rem;
+
+      img {
+        width: 30rem;
+        height: 30rem;
+      }
+    }
+
+    .food-content {
+      display: flex;
+      flex-direction: column;
+
+      strong {
+        font-size: 4rem;
+        line-height: 5.6rem;
+        display: flex;
+        justify-content: start;
+      }
+    }
+
+    .ingredients {
+      p {
+        font-size: 2.4rem;
+        text-align: start;
+      }
+    }
+
+    .receipt-btn {
+      width: 16.2rem;
+      height: 4.8rem;
+      svg {
+        display: none;
+      }
+    }
+  }
+
  
 `
 
 export const Content = styled.div`
-  /* height: 100%; */
   padding: 3.6rem 5.6rem 5.4rem 5.9rem;
 
   a {
@@ -35,11 +89,6 @@ export const Content = styled.div`
       filter: brightness(0.8);
     }
   }
-
-  @media (min-width: 1368px) {
-    max-width: 136.8rem;
-    margin: 0 auto;
-  }
 `
 
 export const Food = styled.div`
@@ -54,12 +103,15 @@ export const Food = styled.div`
     height: 26.4rem;
     object-fit: cover;
   }
+    strong {
+      display: flex;
+      justify-content: center;
+      margin-bottom: 2.4rem;
+      font-size: 2.7rem;
+      font-weight: 500;
+      color: ${({ theme }) => theme.colors["light-300"]};
+    }
 
-  strong {
-    font-size: 2.7rem;
-    font-weight: 500;
-    color: ${({ theme }) => theme.colors["light-300"]};
-  }
 `
 
 export const IngredientsContainer = styled.div`
@@ -90,6 +142,7 @@ export const AmountFoodIncluded = styled.div`
   button {
     border: none;
     background: none;
+    height: 3.7rem;
   }
 
   .receipt-btn {
@@ -98,11 +151,13 @@ export const AmountFoodIncluded = styled.div`
     gap: 0.74rem;
     justify-content: center;
     text-transform: capitalize;
-    font-size: 0.95rem;
+    font-size: 1.2rem;
     background: ${({ theme }) => theme.colors["tomato-100"]};
   }
 `
 export const AmountFood = styled.div`
   display: flex;
+  align-items: center;
+  justify-content: center;
   gap: 1.9rem;
 `

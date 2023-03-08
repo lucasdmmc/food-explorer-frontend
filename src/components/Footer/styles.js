@@ -8,6 +8,7 @@ export const Container = styled.footer`
   background: ${({ theme }) => theme.colors["dark-600"]};
   padding: 2.93rem 2.77rem;
   max-width: 136.8rem;
+  text-transform: lowercase;
   
   span {
     font-size: 1.2rem;

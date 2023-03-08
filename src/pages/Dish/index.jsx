@@ -12,7 +12,6 @@ import { useAuth } from "../../hooks/useAuth"
 
 export function Dish() {
   const [menuIsVisible, setMenuIsVisible] = useState(false)
-  const { foodItem } = useAuth()
 
   return (
     <>
@@ -23,41 +22,37 @@ export function Dish() {
       <Container menuIsVisible={menuIsVisible}>
         <Header setMenuIsVisible={setMenuIsVisible}/>
         
-        <Content>
-          <Link to="/">
+        <Content className="content">
+          <Link className="back-home-desktop" to="/">
             <CaretLeft size={24}/>
             Voltar
           </Link>
+          <Food className="food-desktop">
+            <img src={`/food/autunno.png`} alt="" />
+            <div className="food-content">
+              <strong>Salada Ravanello</strong>
+              <IngredientsContainer className="ingredients">
+                <p>Rabanetes, folhas verdes e molho agridoce salpicados com gergelim.</p>
 
-          {foodItem.map(food => {
-            return (
-            <><Food>
-                <img src="" alt="" />
-                <strong>Salada Ravanello</strong>
-              </Food><IngredientsContainer>
-                  <p>Rabanetes, folhas verdes e molho agridoce salpicados com gergelim.</p>
+                <Ingredients />
+              </IngredientsContainer>
+            <AmountFoodIncluded >
+              <AmountFood>
+                <button><Minus size={18}/></button>
+                <span>01</span>
+                <button><Plus size={18}/></button>
+              </AmountFood>
+              <Button 
+                icon={Receipt}
+                title="Pedir ∙ R$ 25,00"
+                className="receipt-btn"
+              />
+            </AmountFoodIncluded>
 
-                  <Ingredients />
-                </IngredientsContainer></>
-
-            )
-          })}
-
-
-          <AmountFoodIncluded>
-            <AmountFood>
-              <button><Minus size={20}/></button>
-              <span>01</span>
-              <button><Plus size={20}/></button>
-            </AmountFood>
-            <Button 
-              icon={Receipt}
-              title="Pedir ∙ R$ 25,00"
-              className="receipt-btn"
-            />
-          </AmountFoodIncluded>
+            </div>
+          </Food>
         </Content>
-        <Footer />
+          <Footer />
       </Container>
     </>
   )

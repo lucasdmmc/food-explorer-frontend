@@ -13,7 +13,6 @@ export function AuthProvider({ children }) {
   const totalFoodPrice = foodItem.reduce((total, foodItem) => {
     return total + foodItem.price * foodItem.quantity
   }, 0)
-  console.log(totalFoodPrice)
 
   const foodQuantity = foodItem.length
 
@@ -30,7 +29,6 @@ export function AuthProvider({ children }) {
     const foodExistsInSummary = foodItem.
     findIndex(item => item.id === food.id)
 
-    console.log(foodExistsInSummary)
 
     const newFood = produce(foodItem, (draft) => {
       if(foodExistsInSummary < 0) {
@@ -103,8 +101,8 @@ export function AuthProvider({ children }) {
       if(user && token ){
         api.defaults.headers.common["Authorization"] = `Bearer ${token}`
         setData({
-          user,
-          // user: JSON.parse(user)
+          // user,
+          user: JSON.parse(user)
         })
       }
     }, [])

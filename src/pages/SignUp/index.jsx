@@ -1,31 +1,41 @@
 import { Container, Form, Logo } from "./styles";
 import { Input } from "../../components/Input"
 import { Button } from "../../components/Button"
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
+import { InputErros } from "../../components/InputErrors";
 
 import { Hexagon } from "phosphor-react";
-import { useEffect, useState } from "react";
 import { api } from "../../services/api";
+import * as yup from "yup";
+import { yupResolver } from "@hookform/resolvers/yup"
+import { useForm } from "react-hook-form";
+
+
+const validationSignUp = yup.object().shape({
+  name: yup.string().required("O nome é obrigatório"),
+  email: yup.string().required("O email é obrigatório"),
+  password: yup.string().required("A senha é obrigatória")
+  .min(6, "A senha deve ter no minimo 6 caracteres"),
+})
 
 export function SignUp() {
-  const [name, setName] = useState("")
-  const [email, setEmail] = useState("")
-  const [password, setPassword] = useState("")
+  const { register, handleSubmit, formState: { errors } } = useForm({
+    resolver: yupResolver(validationSignUp)
+  })
 
-  function handleSignUp() {
-    if(!name || !email || !password) {
-      return alert("Preencha todos os campos")
-    }
+  const navigate = useNavigate()
 
-    api.post("/users", { name, email, password })
+  function handleSubmitSignUp(data) {
+    api.post("/users", data)
     .then(() => {
       alert("Usuário cadastrado com sucesso")
+      navigate("/")
     })
     .catch(error => {
-      if(error.response){
+      if(error.response) {
         alert(error.response.data.message)
       } else {
-        alert("Não foi possivel cadastrar")
+        alert("Não foi possível cadastrar")
       }
     })
   }
@@ -38,49 +48,41 @@ export function SignUp() {
         </Logo>
 
 
-        <Form>
+        <Form onSubmit={handleSubmit(handleSubmitSignUp)}>
           <h2>Crie sua conta</h2>
         
-        <div>
-          <span>
-            Seu nome
-          </span>
+          <div>
+            <span>Seu nome</span>
             <Input
               type="text"
               placeholder="Exemplo: Maria da Silva"
-              onChange={(e) => setName(e.target.value)}
+              {...register("name")}
             />
-        </div>
-        <div>
-          <span>
-            Email
-          </span>
+            <InputErros title={errors.name?.message}/>
+          </div>
+          <div>
+            <span>Email</span>
             <Input
-              type="text"
+              type="email"
               placeholder="Exemplo: exemplo@exemplo.com.br"
-              onChange={(e) => setEmail(e.target.value)}
+              {...register("email")}
             />
-        </div>
+            <InputErros title={errors.email?.message}/>
+          </div>
 
-        <div>
-          <span>
-            Senha
-          </span>
+          <div>
+            <span>Senha</span>
             <Input
               type="password"
               placeholder="No mínimo 6 caracteres"
-              onChange={(e) => setPassword(e.target.value)}
+              {...register("password")}
             />
-        </div>
+            <InputErros title={errors.password?.message}/>
+          </div>
 
-          <Button
-            onClick={handleSignUp}
-            title="Criar conta" 
-          />
+          <Button title="Criar conta" />
 
-          <Link to="/">
-            Já tenho uma conta
-          </Link>
+          <Link to="/">Já tenho uma conta</Link>
         </Form>
       </div>
     </Container>

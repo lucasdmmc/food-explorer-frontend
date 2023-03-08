@@ -1,5 +1,6 @@
 import * as yup from "yup";
-
+import { yupResolver } from "@hookform/resolvers/yup"
+ 
 import { Container, Form, Logo } from "./styles";
 
 import { Input } from "../../components/Input"
@@ -8,16 +9,22 @@ import { Hexagon } from "phosphor-react";
 
 import { Link } from "react-router-dom";
 import { useAuth } from "../../hooks/useAuth";
-import { useEffect, useState } from "react";
+import { useForm } from "react-hook-form";
+import { InputErros } from "../../components/InputErrors";
+
+const validationSignIn = yup.object({
+  email: yup.string().required("O email é obrigatório"),
+  password: yup.string().required(" A senha é obrigatória"),
+})
 
 export function SignIn() {
   const { signIn } = useAuth()
+  const { register, handleSubmit, formState: { errors } } = useForm({
+    resolver: yupResolver(validationSignIn)
+  })
 
-  const [email, setEmail] = useState("")
-  const [password, setPassword] = useState("")
-
-  function handleSignIn() {
-    signIn({email, password})
+  function handleSubmitSignIn(data) {
+    signIn(data)
   }
 
   return (
@@ -29,29 +36,31 @@ export function SignIn() {
           <h1>food explorer</h1>
         </Logo>
 
-        <Form >
+        <Form onSubmit={handleSubmit(handleSubmitSignIn)}>
             <h2>Faça login</h2>
             
             <div>
               <span>Email</span>
                 <Input
                   type="email"
-                  onChange={(e) => setEmail(e.target.value)}
                   placeholder="Exemplo: exemplo@exemplo.com.br"
+                  {...register("email")}
                 />
+                <InputErros title={errors.email?.message}/>
+                
             </div>
             <div>
               <span>Senha</span>
                 <Input
-                  type="password" 
-                  onChange={(e) => setPassword(e.target.value)}
+                  type="password"
                   placeholder="No mínimo 6 caracteres"
-                />
+                  {...register("password")}
+                  />
+                  <InputErros title={errors.password?.message}/>
             </div>
 
             <Button 
-              onClick={handleSignIn}
-              type="button" 
+              type="submit" 
               title="Entrar" 
             />
 

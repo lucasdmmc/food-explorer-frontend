@@ -6,10 +6,17 @@ export const Container = styled.div`
   justify-content: center;
   gap: 2.4rem;
 
+  @media(min-width: 1368px) {
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+    gap: 1.2rem;
+  }
+
   span {
     font-size: 1.4rem;
     line-height: 2.4rem;
-    padding: 0.4rem 0.8rem;
+    padding: 0.4rem 1.2rem;
     background: ${({ theme }) => theme.colors["dark-1000"]};
     display: flex;
     align-items: center;

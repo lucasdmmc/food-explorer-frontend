@@ -1,17 +1,17 @@
 import styled from "styled-components";
 
 export const Container = styled.div`
- max-width: 42.8rem;
- margin: 0 auto;
- height: 100vh;
+  max-width: 42.8rem;
+  margin: 0 auto;
+  height: 100vh;
 
- display: flex;
- flex-direction: column;
- justify-content: center;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
 
- padding: 0 4.7rem 0 6.5rem;
+  padding: 0 4.7rem 0 6.5rem;
 
- @media screen and (min-width: 1386px) {
+  @media screen and (min-width: 1386px) {
     padding: 0;
     max-width: 138.6rem;
 
@@ -61,8 +61,8 @@ export const Logo = styled.div`
 export const Form = styled.form`
   display: flex;
   flex-direction: column;
-  gap: 3.2rem;
-
+  gap: 2rem;
+  
   h2 {
     display: none;
   }

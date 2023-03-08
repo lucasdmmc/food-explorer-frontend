@@ -1,4 +1,4 @@
-import styled from "styled-components";
+import styled, { css } from "styled-components";
 import { Link } from "react-router-dom";
 
 export const Container = styled.header`
@@ -130,8 +130,6 @@ export const InputContainer = styled.div`
     border: none;
     outline: none;
     padding: 1.6rem;
-
-
   }
 `
 

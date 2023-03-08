@@ -1,6 +1,5 @@
 import produce from "immer";
 import { createContext, useEffect, useState } from "react";
-import { FavoriteFood } from "../pages/Favorites/styles";
 import { api } from "../services/api";
 
 export const AuthContext = createContext({})
@@ -15,12 +14,10 @@ export function AuthProvider({ children }) {
     return total + foodItem.price * foodItem.quantity
   }, 0)
   console.log(totalFoodPrice)
+
   const foodQuantity = foodItem.length
 
-  function addFood({ 
-    id, name, description, price, photo, quantity
-  }) {
-
+  function addFood({ id, name, description, price, photo, quantity}) {
     const food = {
       id,
       name,

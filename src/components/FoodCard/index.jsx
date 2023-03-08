@@ -1,7 +1,7 @@
 import { Container, Favorites, AmountFoodContainer, AmountFoodIncluded, AmountFood } from "./styles";
 import { FiHeart } from "react-icons/fi";
 import { Button } from "../Button";
-import { Link } from "react-router-dom";
+import { Link, useParams } from "react-router-dom";
 import { useEffect, useState } from "react";
 import { useAuth } from "../../hooks/useAuth";
 import { Minus, Plus } from "phosphor-react";
@@ -14,6 +14,7 @@ export function FoodCard({ id, name, description, price, photo}) {
   const [isActive, setIsActive] = useState(false)
 
   const formattedMoney = FormatMoney(price)
+
   function handleAddFood() {
 
     const foods = {
@@ -52,7 +53,7 @@ export function FoodCard({ id, name, description, price, photo}) {
     <Container className="embla__slide responsive-card">
 
       
-      <Link to="dish">
+      <Link to="/dish">
         <img src={`/food/${photo}`} alt="" />
       </Link>
       

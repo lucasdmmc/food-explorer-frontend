@@ -6,25 +6,41 @@ import { Button } from "../Button";
 import { Input } from "../Input";
 import { MenuMobile } from "../MenuMobile";
 import { Container, InputContainer, Links, LogoHeader, Navigation } from "./styles";
+import { useEffect, useState } from "react";
+import { ErrorMessage } from "../ErrorMessage";
 
 export function Header({setMenuIsVisible}) {
   const navigate = useNavigate()
   const { signOut, foodQuantity } = useAuth()
-
+  const [error, setError] = useState(false)
+  console.log(error)
   function handleSignOut() {
     navigate("/")
     signOut();
   }
 
+  function handleErrorMessage() {
+    if(error && foodQuantity <= 0) {
+      setError(false)
+    } else {
+      setError(true)
+    }
+  }
+
   return (
     <>
+      {
+        error &&
+        <ErrorMessage
+          title="Você não possui itens no carrinho"
+        />
+      }
       <Container>
         <FiMenu
           onClick={() => setMenuIsVisible(true)}
           className="menu-btn" 
           size={24}
         />
-
         <LogoHeader to="/" className="logo-header">
           <Hexagon size={30} weight="fill"/>
           <strong>Food Explorer</strong>
@@ -51,18 +67,19 @@ export function Header({setMenuIsVisible}) {
         </Navigation>
 
         <div className="btn-order-signout">
-          <Link to="/payment">
-            <Button 
+          <Link to={foodQuantity > 0 ? `/payment` : "/"}>
+            <Button
               icon={Receipt}
               title={`Pedidos (${foodQuantity})`}
+              onClick={handleErrorMessage}
             />
           </Link>
           <FiLogOut onClick={handleSignOut} size={27}/>
         </div>
         
         <div className="receipt-btn">
-          <Link to="/payment">
-            <Receipt size={30}/>
+          <Link to={foodQuantity > 0 ? `/payment` : "/"}>
+            <Receipt onClick={handleErrorMessage} size={30}/>
             <span>{foodQuantity}</span>
           </Link>
         </div>

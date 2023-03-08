@@ -8,9 +8,11 @@ import { Footer } from "../../components/Footer"
 import { Link } from "react-router-dom"
 import { useState } from "react"
 import { MenuMobile } from "../../components/MenuMobile"
+import { useAuth } from "../../hooks/useAuth"
 
 export function Dish() {
   const [menuIsVisible, setMenuIsVisible] = useState(false)
+  const { foodItem } = useAuth()
 
   return (
     <>
@@ -27,16 +29,20 @@ export function Dish() {
             Voltar
           </Link>
 
-          <Food>
-            <img src="" alt="" />
-            <strong>Salada Ravanello</strong>
-          </Food>
+          {foodItem.map(food => {
+            return (
+            <><Food>
+                <img src="" alt="" />
+                <strong>Salada Ravanello</strong>
+              </Food><IngredientsContainer>
+                  <p>Rabanetes, folhas verdes e molho agridoce salpicados com gergelim.</p>
 
-          <IngredientsContainer>
-            <p>Rabanetes, folhas verdes e molho agridoce salpicados com gergelim.</p>
+                  <Ingredients />
+                </IngredientsContainer></>
 
-            <Ingredients />
-          </IngredientsContainer>
+            )
+          })}
+
 
           <AmountFoodIncluded>
             <AmountFood>
